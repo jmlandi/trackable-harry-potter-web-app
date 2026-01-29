@@ -118,8 +118,20 @@ export default function Contact() {
 
       {/* MODAL */}
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm">
-          <div className="relative w-full max-w-xl rounded-2xl p-6" style={{ backgroundColor: 'var(--background)', color: 'var(--foreground)', border: '1.5px solid var(--accent-gray)' }}>
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm px-2">
+          <div
+            className="relative w-full max-w-xl rounded-2xl p-4 sm:p-6"
+            style={{
+              backgroundColor: 'var(--background)',
+              color: 'var(--foreground)',
+              border: '1.5px solid var(--accent-gray)',
+              maxWidth: '100%',
+              minWidth: 0,
+              boxSizing: 'border-box',
+              overflowY: 'auto',
+              maxHeight: '90vh',
+            }}
+          >
 
             {/* Close */}
             <button
