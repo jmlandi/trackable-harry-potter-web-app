@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { createClient } from "@/lib/supabase/client"
 import type { Contact } from "@/types/contact"
+import { trackEvent } from "@/lib/analytics"
 import { X } from "lucide-react"
 
 export default function Contact() {
@@ -15,26 +16,23 @@ export default function Contact() {
    * Analytics placeholders
    * ----------------------------- */
   function trackModalOpened() {
-    console.log("🪄 Contact modal opened")
+    trackEvent("Contact Modal Opened")
   }
 
-  function trackFormSubmitted() {
-    console.log("📜 Contact form submitted")
+  function trackFormSubmitted(contact?: Contact) {
+    trackEvent("Contact Form Submitted", contact ? { ...contact } : undefined)
   }
-
 
   function trackFormAbandoned() {
-    console.log("🙄 Contact form abandoned (coward)")
+    trackEvent("Contact Form Abandoned")
   }
 
-  function trackFormError(error: any) {
-    // Placeholder for analytics error tracking
-    console.log("❌ Contact form error", error)
+  function trackFormError(errorMessage: string, contact?: Contact) {
+    trackEvent("Contact Form Error", { error: String(errorMessage), ...(contact ? { ...contact } : {}) })
   }
 
-  function trackFormSuccess() {
-    // Placeholder for analytics success tracking
-    console.log("✅ Contact form success")
+  function trackFormSuccess(contact?: Contact) {
+    trackEvent("Contact Form Success", contact ? { ...contact } : undefined)
   }
 
   /* -----------------------------
@@ -75,19 +73,19 @@ export default function Contact() {
       if (error) {
         console.error("Supabase insert error:", error)
         setErrorMsg("There was an error sending your message. Please try again.")
-        trackFormError(error)
+        trackFormError(error.message, contact)
         setLoading(false)
         return
       }
-      trackFormSubmitted()
-      trackFormSuccess()
+      trackFormSubmitted(contact)
+      trackFormSuccess(contact)
       setSuccessMsg("Message sent successfully! 🦉")
       setLoading(false)
       form.reset()
     } catch (err) {
       console.error("Unexpected submit error:", err)
       setErrorMsg("There was an error sending your message. Please try again.")
-      trackFormError(err)
+      trackFormError("Unexpected error", contact)
       setLoading(false)
     }
   }

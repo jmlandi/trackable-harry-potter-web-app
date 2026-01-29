@@ -29,12 +29,12 @@ export default function Houses() {
   const [selectedHouse, setSelectedHouse] = useState<House | null>(null)
 
   function openHouseDetails(house: House) {
-    trackEvent()
+    trackEvent("House Details Opened", { house: house.name, houseId: house.id })
     setSelectedHouse(house)
   }
 
   function closeHouseDetails() {
-    trackEvent()
+    trackEvent("House Details Closed")
     setSelectedHouse(null)
   }
 
