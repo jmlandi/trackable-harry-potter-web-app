@@ -3,6 +3,7 @@ import { Trait } from "@/types/trait"
 
 export interface House {
   id: string,
+  name: string,
   animal: string,
   commonRoom: string,
   element: string,
