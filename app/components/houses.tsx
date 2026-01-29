@@ -47,17 +47,18 @@ export default function Houses() {
   return (
     <>
       <section className="my-3.5 p-3.5 flex flex-col items-center gap-3.5 w-screen">
-        <h3 className="text-6xl text-center font-extralight lowercase italic">
-          Know our <span className="font-extrabold">Houses</span>
+        <h3 className="text-4xl text-center font-bold lowercase font-heading" style={{ color: '#d4af37' }}>
+          Know our <span className="font-bold font-heading" style={{ color: '#f5f1de' }}>Houses</span>
         </h3>
 
-        <ul className="w-full flex flex-wrap justify-center sm:justify-between gap-3.5 border-2 border-gray-900 p-3.5 rounded-2xl">
+        <ul className="w-full flex flex-wrap justify-center sm:justify-between gap-3.5 border-2 p-3.5 rounded-2xl" style={{ borderColor: '#2a2a2a', backgroundColor: '#1a1a1a' }}>
           {data.map((house) => (
             <li
               key={house.id}
-              className="flex flex-col gap-2 p-3.5 rounded-2xl max-w-150 min-w-full sm:min-w-80 bg-gray-900"
+              className="flex flex-col gap-2 p-3.5 rounded-2xl max-w-150 min-w-full sm:min-w-80"
+              style={{ backgroundColor: '#1a1a1a', border: '1px solid #2a2a2a' }}
             >
-              <h4 className="text-2xl font-bold text-gray-50 italic border-b border-gray-600 pb-3 mb-3">
+              <h4 className="text-2xl font-bold border-b pb-3 mb-3 font-heading" style={{ color: '#d4af37', borderColor: '#2a2a2a' }}>
                 {house.name}
               </h4>
 
@@ -67,7 +68,10 @@ export default function Houses() {
 
               <button
                 onClick={() => openHouseDetails(house)}
-                className="mt-2 flex items-center gap-2 p-2 rounded-lg bg-gray-300 text-gray-900 font-extrabold hover:bg-gray-950 hover:text-gray-300 transition-all cursor-pointer"
+                className="mt-2 flex items-center gap-2 p-2 rounded-lg font-extrabold transition-all cursor-pointer"
+                style={{ backgroundColor: '#d4af37', color: '#0f0f0f' }}
+                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#740001'; e.currentTarget.style.color = '#d4af37'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#d4af37'; e.currentTarget.style.color = '#0f0f0f'; }}
               >
                 <Info size={18} />
                 Details
@@ -82,15 +86,15 @@ export default function Houses() {
       {/* MODAL */}
       {selectedHouse && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm m-3.5">
-          <div className="relative w-full max-w-lg rounded-2xl bg-gray-900 p-6 text-gray-50">
+          <div className="relative w-full max-w-lg rounded-2xl p-6" style={{ backgroundColor: '#1a1a1a', color: '#f5f1de' }}>
             <button
               onClick={closeHouseDetails}
               className="absolute right-4 top-4 text-gray-400 hover:text-gray-50 cursor-pointer"
-            >
+              style={{ color: '#d4af37' }}>
               <X />
             </button>
 
-            <h3 className="text-3xl font-bold italic mb-4">
+            <h3 className="text-3xl font-bold italic mb-4 font-heading">
               {selectedHouse.name}
             </h3>
 

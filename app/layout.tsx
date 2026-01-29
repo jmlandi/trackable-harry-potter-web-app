@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Cinzel } from "next/font/google";
 import { Providers } from "./providers";
 import "./globals.css";
 import { pageEvent } from "./lib/analytics";
@@ -13,6 +13,12 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
+const hogwartsSerif = Cinzel({
+  subsets: ["latin"],
+  variable: "--font-hogwarts-serif",
+  weight: ["400", "600", "700"]
+})
 
 export const metadata: Metadata = {
   title: "Harry Potter | Website",
@@ -29,7 +35,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${hogwartsSerif.variable} antialiased`}>
         <Providers> {children} </Providers>
       </body>
     </html>
