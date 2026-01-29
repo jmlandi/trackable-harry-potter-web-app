@@ -17,48 +17,48 @@
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
 │                          END USER BROWSER                               │
-│                                                                          │
+│                                                                         │
 │  ┌───────────────────────────────────────────────────────────────────┐  │
 │  │                    Next.js Application                            │  │
-│  │  ┌──────────────┐  ┌──────────────┐  ┌──────────────────────┐    │  │
-│  │  │   Hero.tsx   │  │  Houses.tsx  │  │   Contact.tsx        │    │  │
-│  │  │              │  │              │  │  ┌────────────────┐  │    │  │
-│  │  │  - Static    │  │ - useHouses  │  │  │ Contact Form   │  │    │  │
-│  │  │  - Branded   │  │ - Modal View │  │  │ - Validation   │  │    │  │
-│  │  │  - Hero CTA  │  │ - Analytics  │  │  │ - Supabase Save│  │    │  │
-│  │  │              │  │              │  │  │ - Analytics    │  │    │  │
-│  │  └──────────────┘  └──────────────┘  │  └────────────────┘  │    │  │
-│  │                                       │  - Loading State    │    │  │
-│  │                                       │  - Error Feedback   │    │  │
-│  │                                       │  - Success Message  │    │  │
-│  │                                       └──────────────────────┘    │  │
-│  │                                                                    │  │
-│  │  ┌───────────────────────────────────────────────────────────┐   │  │
-│  │  │              Analytics & Data Layer                        │   │  │
-│  │  │  ┌──────────────┐  ┌──────────────┐  ┌──────────────────┐ │   │  │
-│  │  │  │ analytics.ts │  │  config.ts   │  │  amplitude.ts    │ │   │  │
-│  │  │  │              │  │              │  │                  │ │   │  │
-│  │  │  │ trackEvent() │  │ - API_URL    │  │ - SDK Init       │ │   │  │
-│  │  │  │ wrapper      │  │ - STALE_TIME │  │ - Auto-capture   │ │   │  │
-│  │  │  │              │  │ - AMP_KEY    │  │ - Session Replay │ │   │  │
-│  │  │  └──────────────┘  └──────────────┘  └──────────────────┘ │   │  │
-│  │  │  ┌──────────────────────────────────────────────────────┐  │   │  │
-│  │  │  │          React Query Hooks                           │  │   │  │
-│  │  │  │  - useHouses() → Wizard World API                   │  │   │  │
-│  │  │  │  - useHouse(id) → Wizard World API                 │  │   │  │
-│  │  │  └──────────────────────────────────────────────────────┘  │   │  │
-│  │  │  ┌──────────────────────────────────────────────────────┐  │   │  │
-│  │  │  │          Supabase Client (Browser)                   │  │   │  │
-│  │  │  │  - Supabase.from('contacts').insert()              │  │   │  │
-│  │  │  │  - Row-Level Security enforced                      │  │   │  │
-│  │  │  └──────────────────────────────────────────────────────┘  │   │  │
-│  │  └───────────────────────────────────────────────────────────┘   │  │
-│  │                                                                    │  │
+│  │  ┌──────────────┐  ┌──────────────┐  ┌──────────────────────┐     │  │
+│  │  │   Hero.tsx   │  │  Houses.tsx  │  │   Contact.tsx        │     │  │
+│  │  │              │  │              │  │  ┌────────────────┐  │     │  │
+│  │  │  - Static    │  │ - useHouses  │  │  │ Contact Form   │  │     │  │
+│  │  │  - Branded   │  │ - Modal View │  │  │ - Validation   │  │     │  │
+│  │  │  - Hero CTA  │  │ - Analytics  │  │  │ - Supabase Save│  │     │  │
+│  │  │              │  │              │  │  │ - Analytics    │  │     │  │
+│  │  └──────────────┘  └──────────────┘  │  └────────────────┘  │     │  │
+│  │                                      │  - Loading State     │     │  │
+│  │                                      │  - Error Feedback    │     │  │
+│  │                                      │  - Success Message   │     │  │
+│  │                                      └──────────────────────┘     │  │
+│  │                                                                   │  │
+│  │  ┌───────────────────────────────────────────────────────────┐    │  │
+│  │  │              Analytics & Data Layer                       │    │  │
+│  │  │  ┌──────────────┐  ┌──────────────┐  ┌──────────────────┐ │    │  │
+│  │  │  │ analytics.ts │  │  config.ts   │  │  amplitude.ts    │ │    │  │
+│  │  │  │              │  │              │  │                  │ │    │  │
+│  │  │  │ trackEvent() │  │ - API_URL    │  │ - SDK Init       │ │    │  │
+│  │  │  │ wrapper      │  │ - STALE_TIME │  │ - Auto-capture   │ │    │  │
+│  │  │  │              │  │ - AMP_KEY    │  │ - Session Replay │ │    │  │
+│  │  │  └──────────────┘  └──────────────┘  └──────────────────┘ │    │  │
+│  │  │  ┌──────────────────────────────────────────────────────┐ │    │  │
+│  │  │  │          React Query Hooks                           │ │    │  │
+│  │  │  │  - useHouses() → Wizard World API                    │ │    │  │
+│  │  │  │  - useHouse(id) → Wizard World API                   │ │    │  │
+│  │  │  └──────────────────────────────────────────────────────┘ │    │  │
+│  │  │  ┌──────────────────────────────────────────────────────┐ │    │  │
+│  │  │  │          Supabase Client (Browser)                   │ │    │  │
+│  │  │  │  - Supabase.from('contacts').insert()                │ │    │  │
+│  │  │  │  - Row-Level Security enforced                       │ │    │  │
+│  │  │  └──────────────────────────────────────────────────────┘ │    │  │
+│  │  └───────────────────────────────────────────────────────────┘    │  │
+│  │                                                                   │  │
 │  └───────────────────────────────────────────────────────────────────┘  │
-│                                                                          │
+│                                                                         │
 └──────────────┬──────────────────────────────────────────────────────┬───┘
                │                                                      │
-               │ HTTPS/REST API                                      │ HTTPS/REST API
+               │ HTTPS/REST API                                       │ HTTPS/REST API
                │                                                      │
         ┌──────▼──────┐                                      ┌────────▼────────┐
         │   Amplitude │                                      │    Supabase     │
@@ -71,7 +71,7 @@
         │ - Replays   │                                      │ │ │last_nm  │ │ │
         │             │                                      │ │ │email    │ │ │
         └─────────────┘                                      │ │ │message  │ │ │
-                                                             │ │ │created_at
+                                                             │ │ │created_at │ │
                                                              │ └─────────────┘ │
                                                              └─────────────────┘
 ```
@@ -85,9 +85,9 @@
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │                    layout.tsx                               │
-│  - Root layout with Providers (React Query, Amplitude)    │
-│  - Loads global CSS (Tailwind + custom theme)             │
-│  - Initializes pageEvent() tracking                       │
+│  - Root layout with Providers (React Query, Amplitude)      │
+│  - Loads global CSS (Tailwind + custom theme)               │
+│  - Initializes pageEvent() tracking                         │
 └────────────────────────┬────────────────────────────────────┘
                          │
             ┌────────────┼────────────┐
@@ -98,11 +98,11 @@
       │         │  │          │  │          │
       │ Static  │  │- State   │  │- State   │
       │Content  │  │- Modal   │  │- Form    │
-      │ - CTA   │  │- Analytics   │- Loading │
-      │Button   │  │- useHouses   │- Errors  │
-      │         │  │              │- Success │
+      │ - CTA   │  │- Analytics  │- Loading │
+      │Button   │  │- useHouses  │- Errors  │
+      │         │  │             │- Success │
       └─────────┘  └──────────┘  │- Analytics
-                                  └──────────┘
+                                 └──────────┘
 ```
 
 ### contact.tsx State Machine
@@ -283,16 +283,16 @@ trackEvent() function     │ e.g., insert to   │
     │                 │   └──────────────────┘
     ▼                 │
 Adds properties:      │
-- timestamp          │
-- event context      │
-- user data          │
+- timestamp           │
+- event context       │
+- user data           │
     │                 │
     ▼                 ▼
 amplitude.track()   Event completes
     │                │
-    ▼                └─────────────────┐
-Amplitude SDK                         │
-    │                                 ▼
+    ▼                └───────────────┐
+Amplitude SDK                        │
+    │                                ▼
     ├─► Event Queue              Return to Component
     ├─► Batch & Send                 │
     ├─► Server Processing            ▼
@@ -310,7 +310,7 @@ Amplitude SDK                         │
 
 ```
 ┌────────────────────────────────────────────────────────────┐
-│             Contact Form Event Tracking                     │
+│             Contact Form Event Tracking                    │
 └────────────────────────────────────────────────────────────┘
 
 Contact Modal Opened
@@ -373,12 +373,12 @@ Table: public.contacts
 
 RLS Policy:
 ┌──────────────────────────────────────────────────────┐
-│ Policy: "Allow insert for all"                      │
+│ Policy: "Allow insert for all"                       │
 │ - Type: INSERT                                       │
 │ - Using: true                                        │
-│ - Purpose: Allow public form submissions            │
+│ - Purpose: Allow public form submissions             │
 │                                                      │
-│ (In production, use more restrictive policies)      │
+│ (In production, use more restrictive policies)       │
 └──────────────────────────────────────────────────────┘
 
 Client Flow:
@@ -427,7 +427,7 @@ Client Flow:
 └─────────────────────────────────────────────────────────┘
 
 ┌────────────────────────────────────┐
-│     React Query (Server State)      │
+│     React Query (Server State)     │
 │                                    │
 │  - Houses data from API            │
 │  - Cached for 5 minutes            │
@@ -441,7 +441,7 @@ Client Flow:
              Re-used if available
 
 ┌────────────────────────────────────┐
-│    Component Local State (React)    │
+│    Component Local State (React)   │
 │                                    │
 │  Contact Modal:                    │
 │  - isOpen: boolean                 │
@@ -460,7 +460,7 @@ Client Flow:
              No Redux/Zustand overhead
 
 ┌────────────────────────────────────┐
-│     Environment Configuration       │
+│     Environment Configuration      │
 │                                    │
 │  lib/config.ts exports:            │
 │  - API_URL                         │
@@ -639,7 +639,7 @@ Production Build
 │  npm run build                       │
 │  Generates .next/ (optimized)        │
 │  Type checking (tsc)                 │
-│  ESLint validation (npm run lint)   │
+│  ESLint validation (npm run lint)    │
 └──────────────────────────────────────┘
 
 Deployment Options
